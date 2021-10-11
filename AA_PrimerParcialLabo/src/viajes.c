@@ -16,9 +16,9 @@ void mostrarViajes(eViajes viajes){
 }
 
 int listarViajes(eViajes* list, int length){
-	printf(" ######################################\n");
+	printf(" ############################################\n");
 	printf(" º         Lista de Viajes          º\n");
-	printf(" º         Id            Descripcion        kms º\n");
+	printf(" º        Id            Descripcion        kms º\n");
 	for (int i = 0;i<length;i++){
 		if (list[i].idViaje!=0){
 			mostrarViajes(list[i]);
@@ -27,15 +27,28 @@ int listarViajes(eViajes* list, int length){
 	return 0;
 }
 
-int cargarDescripcionViajes(char descripcion[], int idViajes,
-		eViajes list[], int tamViajes, float km){
-	int pudo = 0;
+int cargarDescripcionViajes(char descripcion[], int idViajes, eViajes viajes[], int tamViajes){
+	int retorno = 0;
+	if(viajes != NULL && viajes > 0) {
 	for (int i=0;i<tamViajes;i++){
-		if(list[i].idViaje == idViajes){
-			strcpy(descripcion, list[i].descripcion);
-			list[i].kms=km;
-			pudo = 1;
+		if(viajes[i].idViaje == idViajes){
+			strcpy(descripcion, viajes[i].descripcion);
+			retorno=1;
+			}
+		}
+
+	}
+	return retorno;
+}
+
+int buscarViajePorID(int id, eViajes viajes[], int tamViaje){
+	int indice = -1;
+
+	for(int i = 0; i < tamViaje; i++){
+		if(viajes[i].idViaje == id){
+			indice = i;
+			break;
 		}
 	}
-	return pudo;
+	return indice;
 }

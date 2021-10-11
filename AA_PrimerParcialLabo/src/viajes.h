@@ -10,11 +10,12 @@
 
 typedef struct{
 	int idViaje;
-	char descripcion[25];
+	char descripcion[51];
 	float kms;
 }eViajes;
 
 void mostrarTipo(eViajes viajes);
 int listarViajes(eViajes* list, int length);
-int cargarDescripcioneViajes(char descripcion[], int idViajes,eViajes list[], int tamViajes);
+int cargarDescripcionViajes(char descripcion[], int idViajes, eViajes viajes[], int tamViajes);
+int buscarViajePorID(int id, eViajes viajes[], int tamViaje);
 #endif /* VIAJES_H_ */

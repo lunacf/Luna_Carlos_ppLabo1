@@ -15,7 +15,8 @@
  * @return	0 si se ingresa n y 1 si se ingresa s.
  */
 unsigned int verifica(void);
-
+char menu();
+int GetOption(char* msj,char* msjError,int* pDato,int retries,int min,int max);
 /**
 * @brief	Lee de stdin hasta que encuentra un '\n' o hasta que haya copiado en cadena
 * 			un máximo de ' longitud - 1' caracteres (Solucion al fgets()).

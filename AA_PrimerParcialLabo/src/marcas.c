@@ -28,26 +28,19 @@ int listarMarcas(eMarca* list, int length){
 	return 0;
 }
 
-int cargarDescripcionMarca(char descripcion[], int idMarca,
-		eMarca list[], int tamMarca){
+int cargarDescripcionMarca(char descripcion[], int idMarca, eMarca list[], int tamMarcas){
 	int retorno = 0;
-	for (int i=0;i<tamMarca;i++){
+	if(list != NULL && list > 0){
+	for (int i=0;i<tamMarcas;i++){
 		if(list[i].id == idMarca){
 			strcpy(descripcion, list[i].descripcion);
 			retorno = 1;
+
 		}
 	}
 	return retorno;
 }
 
-int buscarMarcaPorId(int id, eMarca marca[], int tamMarca){
-	int indice = -1;
-
-	for(int i = 0; i < tamMarca; i++){
-		if(marca[i].id == id){
-			indice = i;
-			break;
-		}
-	}
-	return indice;
 }
+
+

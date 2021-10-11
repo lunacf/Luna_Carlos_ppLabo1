@@ -10,12 +10,10 @@
 
 typedef struct{
 	int id;
-	char descripcion[20];
+	char descripcion[51];
 }eMarca;
 
 void mostrarMarca(eMarca marca);
 int listarMarcas(eMarca* list, int length);
-int cargarDescripcionMarca(char descripcion[], int idMarca,
-		eMarca list[], int tamMarca);
-int buscarMarcaPorId(int id, eMarca marca[], int tamMarca);
+int cargarDescripcionMarca(char descripcion[], int idMarca, eMarca list[], int tamMarcas);
 #endif /* MARCAS_H_ */

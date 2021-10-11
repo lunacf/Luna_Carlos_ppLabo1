@@ -15,7 +15,7 @@
 char menu(){
 	int opcionElegida;
 
-			printf("------- CENTRO DE VIONES SRL -------\n");
+			printf("------- CENTRO DE AVIONES SRL -------\n");
 			printf("\nIngrese una opcion para operar: \n");
 			printf("[1] - Alta avion.\n");
 			printf("[2] - Modificar Datos avion .\n");
@@ -23,7 +23,8 @@ char menu(){
 			printf("[4] - Listar aviones.\n");
 			printf("[5] - Listar viajes.\n");
 			printf("[6] - Listar marcas.\n");
-			printf("[7] - Salir del menu.\n");
+			printf("[7] - Informar x marca.\n");
+			printf("[8] - Salir del menu.\n");
 			fflush(stdin);
 			scanf("%d",&opcionElegida);
 			opcionElegida = tolower(opcionElegida);
@@ -80,6 +81,35 @@ static int getInt(int* pResultado){
 
 	}
     return retorno;
+}
+
+int GetOption(char* msj,char* msjError,int* pDato,int retries,int min,int max)
+{
+	int retorno=-1;
+	int bufferInt;
+	int resultScanf;
+	if(msj!=NULL && msjError!=NULL && pDato!=NULL && retries>=0 && max>=min)
+	{
+		do
+		{
+			printf("%s",msj);
+			fflush(stdin);
+			resultScanf=scanf("%d",&bufferInt);
+			if(resultScanf==1 && bufferInt>=min && bufferInt<=max)
+			{
+				*pDato=bufferInt;
+				retorno=0;
+				break;
+			}
+			else
+			{
+				printf("%s Le quedan %d intentos\n",msjError,retries);
+				retries--;
+			}
+
+		}while(retries>=0);
+	}
+	return retorno;
 }
 
 int utn_getNumero(int* pResultado, char* mensaje, char* mensajeError,
