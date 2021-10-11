@@ -12,7 +12,7 @@
 #include "viajes.h"
 
 void mostrarViajes(eViajes viajes){
-   printf(" º      [%d]             %9s        %.2f º\n", viajes.idViaje, viajes.descripcion,viajes.kms);
+   printf(" º      [%d]             %9s        %.2f   º\n", viajes.idViaje, viajes.descripcion,viajes.kms);
 }
 
 int listarViajes(eViajes* list, int length){

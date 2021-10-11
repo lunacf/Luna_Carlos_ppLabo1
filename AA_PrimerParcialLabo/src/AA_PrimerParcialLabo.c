@@ -16,6 +16,7 @@
 #include "aviones.h"
 #include "marcas.h"
 #include "viajes.h"
+#include "fecha.h"
 
 #define CANT_AVION 100
 #define CANT_MARCAS 4
@@ -30,11 +31,11 @@ int main(void) {
 
 
 	eAvion aviones[CANT_AVION] = {
-			{0, 1000, 10, 100, 1000, 1999, 5,0},
-			{1, 1001, 11, 101, 1001, 2000, 6,0},
-			{2, 1002, 12, 102, 1002, 2009, 7,0},
-			{3, 1003, 13, 103, 1003, 2010, 11,0},
-			{4, 1004, 14, 100, 1004, 2020, 21,0}
+			{0, 11000, {10,8,1999}, 100, 1000, 1999, 5,0},
+			{1, 10500, {15,4,2009}, 101, 1001, 2000, 6,0},
+			{2, 10900, {21,2,2013}, 102, 1002, 2009, 7,0},
+			{3, 17790, {16,11,2012}, 103, 1003, 2010, 11,0},
+			{4, 20000, {11,10,2020}, 100, 1004, 2020, 21,0}
 	};
 
 	eMarca marcas[CANT_MARCAS] = {
@@ -82,16 +83,17 @@ int main(void) {
 							break;
 				case 2: //MODIFICAR AVIONES
 					mostrarAviones(aviones, CANT_AVION, marcas, CANT_MARCAS, viajes, CANT_VIAJES);
-					if(utn_getNumero(&auxID,"\nIngrese matricula para modificar empleado: ", "\nError, matricula invalida ", 1000, 1004, 2)==0) {
+					if(utn_getNumero(&auxID,"\nIngrese matricula para modificar empleado: ", "\nError, matricula invalida ", 10000, 20000, 2)==0) {
 						auxIndice = buscarAvionPorMatricula(aviones, CANT_AVION, auxID);
+						modificarAvion(aviones, CANT_AVION, auxIndice);
 							}
-						else{
+						else if(aviones != NULL && CANT_AVION == 0){
 								printf("Pimero debe dar de alta un avion.\n");
 							}
 							break;
 				case 3: //BAJA AVION
 					mostrarAviones(aviones,CANT_AVION,marcas,CANT_MARCAS,viajes,CANT_VIAJES);
-						if(utn_getNumero(&auxID,"\nIngrese matricula de avion a dar de baja: ","\nError, ID invalido. Reingrese ID:",1000,1004, 3)==0)
+						if(utn_getNumero(&auxID,"\nIngrese matricula de avion a dar de baja: ","\nError, ID invalido. Reingrese ID:",10000,20000, 3)==0)
 							{
 							auxIndice = buscarAvionPorMatricula(aviones, CANT_AVION, auxID);
 							if(auxIndice >= 0 && bajaAvion(aviones, CANT_AVION, auxIndice)== 0)
@@ -104,7 +106,8 @@ int main(void) {
 				case 4:
 					mostrarAviones(aviones, CANT_AVION, marcas, CANT_MARCAS, viajes, CANT_VIAJES);
 					printf("Se ordenaran por doble criterio. \n\n");
-
+					ordenoDobleCriterio(aviones, CANT_AVION, marcas, CANT_MARCAS, viajes, CANT_VIAJES);
+					system("pause");
 
 					//ordenoDobleCriterio(aviones, CANT_AVION, marcas, CANT_MARCAS, viajes, CANT_VIAJES);
 						break;

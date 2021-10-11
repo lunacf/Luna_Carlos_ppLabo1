@@ -11,6 +11,7 @@
 #include "aviones.h"
 #include "viajes.h"
 #include "marcas.h"
+#include "fecha.h"
 
 #define TEXT_SIZE 20
 #define CANT_AUX 5
@@ -18,7 +19,7 @@
 typedef struct{
 	int idAvion;
 	int matricula;
-	int fecha;
+	eFecha fecha;
 	int idViaje;
 	int idMarca;
 	int modelo;
