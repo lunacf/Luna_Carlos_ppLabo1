@@ -12,6 +12,9 @@
 #include <ctype.h>
 #include "carloslunavalidates.h"
 
+/// @brief
+///
+/// @return
 char menu(){
 	int opcionElegida;
 
@@ -23,7 +26,7 @@ char menu(){
 			printf("[4] - Listar aviones.\n");
 			printf("[5] - Listar viajes.\n");
 			printf("[6] - Listar marcas.\n");
-			printf("[7] - Informar x marca.\n");
+			printf("[7] - Menu de informes.\n");
 			printf("[8] - Salir del menu.\n");
 			fflush(stdin);
 			scanf("%d",&opcionElegida);
@@ -31,7 +34,11 @@ char menu(){
 
 			return opcionElegida;
 }
-
+/// @brief
+///
+/// @param cadena
+/// @param longitud
+/// @return
 int myGets(char* cadena, int longitud){
 	int retorno=-1;
 	char bufferString[4096];
@@ -51,8 +58,11 @@ int myGets(char* cadena, int longitud){
 	return retorno;
 }
 
-
-
+/// @brief
+///
+/// @param cadena
+/// @param limite
+/// @return
 static int esNumerica(char* cadena, int limite){
 	int retorno = 1; // VERDADERO
 	int i;
@@ -70,6 +80,10 @@ static int esNumerica(char* cadena, int limite){
 	return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @return
 static int getInt(int* pResultado){
     int retorno=-1;
     char bufferString[50];
@@ -83,6 +97,15 @@ static int getInt(int* pResultado){
     return retorno;
 }
 
+/// @brief
+///
+/// @param msj
+/// @param msjError
+/// @param pDato
+/// @param retries
+/// @param min
+/// @param max
+/// @return
 int GetOption(char* msj,char* msjError,int* pDato,int retries,int min,int max)
 {
 	int retorno=-1;
@@ -112,6 +135,15 @@ int GetOption(char* msj,char* msjError,int* pDato,int retries,int min,int max)
 	return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @param mensaje
+/// @param mensajeError
+/// @param minimo
+/// @param maximo
+/// @param reintentos
+/// @return
 int utn_getNumero(int* pResultado, char* mensaje, char* mensajeError,
 					int minimo, int maximo, int reintentos){
 	int retorno = -1;
@@ -132,7 +164,10 @@ int utn_getNumero(int* pResultado, char* mensaje, char* mensajeError,
 	return retorno;
 }
 
-
+/// @brief
+///
+/// @param cadena
+/// @return
 int esFlotante(char* cadena){
 	int i=0;
 	int retorno = 1;
@@ -157,6 +192,10 @@ int esFlotante(char* cadena){
 	return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @return
 static int getFloat(float* pResultado)
 {
     int retorno=-1;
@@ -173,6 +212,15 @@ static int getFloat(float* pResultado)
     return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @param mensaje
+/// @param mensajeError
+/// @param minimo
+/// @param maximo
+/// @param reintentos
+/// @return
 int utn_getNumeroFlotante(float* pResultado, char* mensaje, char* mensajeError,
 							float minimo, float maximo, int reintentos){
 	float bufferFloat;
@@ -192,7 +240,11 @@ int utn_getNumeroFlotante(float* pResultado, char* mensaje, char* mensajeError,
 	return retorno;
 }
 
-
+/// @brief
+///
+/// @param cadena
+/// @param longitud
+/// @return
 int getString(char* cadena, int longitud){
 	int retorno=-1;
 	char bufferString[4096];
@@ -212,6 +264,11 @@ int getString(char* cadena, int longitud){
 	return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @param longitud
+/// @return
 static int getNombre(char* pResultado, int longitud){
     int retorno=-1;
     char buffer[4096];
@@ -227,6 +284,11 @@ static int getNombre(char* pResultado, int longitud){
     return retorno;
 }
 
+/// @brief
+///
+/// @param cadena
+/// @param longitud
+/// @return
 int esNombre(char* cadena,int longitud){
 	int i=0;
 	int retorno = 1;
@@ -243,6 +305,14 @@ int esNombre(char* cadena,int longitud){
 	return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @param longitud
+/// @param mensaje
+/// @param mensajeError
+/// @param reintentos
+/// @return
 int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeError, int reintentos){
 	char bufferString[4096];
 	int retorno = -1;
@@ -260,7 +330,11 @@ int utn_getNombre(char* pResultado, int longitud,char* mensaje, char* mensajeErr
 	return retorno;
 }
 
-
+/// @brief
+///
+/// @param cadena
+/// @param longitud
+/// @return
 int esDescripcion(char* cadena,int longitud)
 {
 	int i=0;
@@ -280,6 +354,11 @@ int esDescripcion(char* cadena,int longitud)
 	return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @param longitud
+/// @return
 static int getDescripcion(char* pResultado, int longitud)
 {
     int retorno=-1;
@@ -298,6 +377,14 @@ static int getDescripcion(char* pResultado, int longitud)
     return retorno;
 }
 
+/// @brief
+///
+/// @param pResultado
+/// @param longitud
+/// @param mensaje
+/// @param mensajeError
+/// @param reintentos
+/// @return
 int utn_getDescripcion(char* pResultado, int longitud,char* mensaje, char* mensajeError, int reintentos)
 {
 	char bufferString[4096];
@@ -317,33 +404,4 @@ int utn_getDescripcion(char* pResultado, int longitud,char* mensaje, char* mensa
 	return retorno;
 }
 
-void strMayuscula(char cadena[]){
-    int i=0;
-    while(cadena[i]!='\0'){
-        cadena[i] = toupper(cadena[i]);
-        i++;
-    }
-}
 
-void strMinuscula(char cadena[]){
-    int i=0;
-    while(cadena[i]!='\0'){
-        cadena[i] = tolower(cadena[i]);
-        i++;
-    }
-}
-
-void uppercaselInitial(char string[]){
-	int quantity;
-	int i;
-	strMinuscula(string);
-	string[0] = toupper(string[0]);
-	quantity = strlen(string);
-	for (i=0;i<quantity;i++){
-		if (string[i]==' '){
-			string[i+1] = toupper(string[i+1]);
-		}
-	}
-
-	puts(string);
-}
